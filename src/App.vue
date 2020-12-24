@@ -10,20 +10,39 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import SearchBar from './components/SearchBar'
+const API_KEY = 'AIzaSyBfCKOOWIE7hGmoRVuLwmDerZOC4T5YXiI';
 
 export default {
   name: 'App',
-  data() {
-    return {
-      API_KEY: 'AIzaSyBfCKOOWIE7hGmoRVuLwmDerZOC4T5YXiI'
-    }
-  },
   components: {
     SearchBar
   },
+  data() {
+    return {
+      videos: null,
+    }
+  },
   methods: {
     onTermChange(searchTerm) {
-      console.log(searchTerm);
+      // Direct URL. I'll try to construct it in a nicer way
+      // fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&type=video&key=${API_KEY}`)
+      // .then(res => console.log(res, searchTerm));
+
+      let baseUrl= 'https://youtube.googleapis.com/youtube/v3/search?';
+
+      let params = new URLSearchParams({
+        part: 'snippet',
+        q: searchTerm,
+        type: 'video',
+        key: API_KEY
+      });
+      
+      let finalUrl = baseUrl + params.toString();
+
+      fetch(finalUrl)
+        .then(res => res.json())
+        .then(data => this.videos = data.items);
+        // Note to self: data.items[i].snippet.description/title
     }
   }
 }
