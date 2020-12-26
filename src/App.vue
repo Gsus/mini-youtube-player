@@ -2,20 +2,21 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <SearchBar @termChange="onTermChange" />
+    <VideoList :videos="videos" />
     <!-- VideoDetail -->
-    <!-- VideoList -->
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
 import SearchBar from './components/SearchBar'
+import VideoList from './components/VideoList'
 const API_KEY = 'AIzaSyBfCKOOWIE7hGmoRVuLwmDerZOC4T5YXiI';
 
 export default {
   name: 'App',
   components: {
-    SearchBar
+    SearchBar,
+    VideoList
   },
   data() {
     return {

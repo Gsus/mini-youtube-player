@@ -1,5 +1,11 @@
 <template>
-  
+  <div>
+    <!-- Embedded video -->
+
+    <!-- Title and description -->
+
+    <!-- video.id.videoId -->
+  </div>
 </template>
 
 <script>
