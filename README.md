@@ -1,24 +1,5 @@
-# vue2-test
+# Mini YouTube Player
 
-## Project setup
-```
-npm install
-```
+A mini YouTube player built with Vue.js and the Youtube API
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[Have a look~](https://gsus.github.io/mini-youtube-player/)
