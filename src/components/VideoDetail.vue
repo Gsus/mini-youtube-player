@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import he from 'he';
+
 export default {
   name: 'VideoDetail',
   props: ['clickedVideo'],
@@ -21,13 +23,13 @@ export default {
       return `https://www.youtube.com/embed/${this.clickedVideo.id.videoId}`
     },
     title() {
-      return this.clickedVideo.snippet.title;
+      return he.decode(this.clickedVideo.snippet.title);
     },
     channel() {
-      return this.clickedVideo.snippet.channelTitle;
+      return he.decode(this.clickedVideo.snippet.channelTitle);
     },
     description() {
-      return this.clickedVideo.snippet.description;
+      return he.decode(this.clickedVideo.snippet.description);
     }
   }
 }

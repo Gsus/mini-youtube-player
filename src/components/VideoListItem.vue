@@ -1,17 +1,22 @@
 <template>
   <li @click="onVideoClick">
     <img :src="thumbnailUrl" alt="Video's thumbnail">
-    <h2>{{ video.snippet.title }}</h2>
+    <h2>{{ snippetTitle }}</h2>
   </li>
 </template>
 
 <script>
+import he from "he";
+
 export default {
   name: 'VideoListItem',
   props: ['video'],
   computed: {
     thumbnailUrl() {
       return this.video.snippet.thumbnails.default.url;
+    },
+    snippetTitle() {
+      return he.decode(this.video.snippet.title);
     }
   },
   methods: {
