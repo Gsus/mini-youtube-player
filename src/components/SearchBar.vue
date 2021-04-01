@@ -1,16 +1,23 @@
 <template>
   <div>
-    <input type="text" @input="onInput" placeholder="Search for videos..."/>
+    <form @submit.prevent="onSubmit">
+      <input type="text" placeholder="Search for videos..." v-model="inputText"/>
+    </form>
   </div>  
 </template>
 
 <script>
 export default {
   name: 'SearchBar',
+  data() {
+    return {
+      inputText: '',
+    }
+  },
   methods: {
-    onInput(e) {
+    onSubmit() {
       // Syntax is this.$emit(nameOfEventToEmit, valueToEmitWhenEventRuns)
-      this.$emit('termChange', e.target.value);
+      this.$emit('termChange', this.inputText);
     }
   }
 }

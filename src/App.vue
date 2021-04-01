@@ -43,7 +43,10 @@ export default {
 
       fetch(finalUrl)
         .then(res => res.json())
-        .then(data => this.videos = data.items);
+        .then(data => {
+          this.videos = data.items;
+          this.clickedVideo = data.items[0];
+        });
     },
     onVideoClick(videoItem) {
       this.clickedVideo = videoItem;
