@@ -51,6 +51,10 @@ export default {
     onVideoClick(videoItem) {
       this.clickedVideo = videoItem;
     }
+  },
+  created(){
+    // When the app initially renders, make a search with the term "Vue"
+    this.onTermChange('Vue');
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul v-if="videos">
     <VideoListItem 
       v-for="video in videos" 
       :key="video.etag" 
